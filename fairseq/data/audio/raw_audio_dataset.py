@@ -320,6 +320,8 @@ class FileAudioDataset(RawAudioDataset):
             path_or_fp = io.BytesIO(byte_data)
 
         wav, curr_sample_rate = sf.read(path_or_fp, dtype="float32")
+        # itzikg: changed curr_sample_rate to ignore it
+        curr_sample_rate = 16000
 
         feats = torch.from_numpy(wav).float()
         feats = self.postprocess(feats, curr_sample_rate)

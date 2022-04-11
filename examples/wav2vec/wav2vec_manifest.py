@@ -59,8 +59,8 @@ def main(args):
         if args.valid_percent > 0
         else None
     )
-
     with open(os.path.join(args.dest, "train.tsv"), "w") as train_f:
+
         print(dir_path, file=train_f)
 
         if valid_f is not None:
